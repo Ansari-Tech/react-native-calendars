@@ -1,13 +1,27 @@
 import React, {Component} from 'react';
 import {ActivityIndicator} from 'react-native';
 import {View, Text, TouchableOpacity, Image} from 'react-native';
+import HijriDate, {toHijri} from 'hijri-date/lib/safe';
 import XDate from 'xdate';
 import PropTypes from 'prop-types';
 import styleConstructor from './style';
 import {weekDayNames} from '../../dateutils';
 import {CHANGE_MONTH_LEFT_ARROW, CHANGE_MONTH_RIGHT_ARROW} from '../../testIDs';
 
-
+const   monthNames = [
+  "Muharram",
+  "Safar",
+  "Rabi' al-awwal",
+  "Rabi' al-thani",
+  "Jumada al-awwal",
+  "Jumada al-thani",
+  "Rajab",
+  "Sha'ban",
+  "Ramadan",
+  "Shawwal",
+  "Dhu al-Qi'dah",
+  "Dhu al-Hijjah"
+],
 class CalendarHeader extends Component {
   static displayName = 'IGNORE';
   
@@ -134,7 +148,7 @@ class CalendarHeader extends Component {
           {leftArrow}
           <View style={{ flexDirection: 'row' }}>
             <Text allowFontScaling={false} style={this.style.monthText} accessibilityTraits='header'>
-              {this.props.month.toString(this.props.monthFormat)}
+              {monthNames[toHijri(this.props.month.toDate()).month]}
             </Text>
             {indicator}
           </View>
