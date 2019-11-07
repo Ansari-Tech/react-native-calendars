@@ -21,7 +21,7 @@ const   monthNames = [
   "Shawwal",
   "Dhu al-Qi'dah",
   "Dhu al-Hijjah"
-],
+]
 class CalendarHeader extends Component {
   static displayName = 'IGNORE';
   
