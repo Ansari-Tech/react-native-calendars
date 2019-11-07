@@ -148,7 +148,7 @@ class CalendarHeader extends Component {
           {leftArrow}
           <View style={{ flexDirection: 'row' }}>
             <Text allowFontScaling={false} style={this.style.monthText} accessibilityTraits='header'>
-              Hello world
+              {monthNames[toHijri(this.props.month.toDate()).month]} {toHijri(this.props.month.toDate()).year} ({this.props.month.getFullYear()}) 
             </Text>
             {indicator}
           </View>
