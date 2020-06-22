@@ -83,6 +83,7 @@ class CalendarHeader extends Component {
   }
 
   onPressLeft() {
+    console.log(this.props.month.toDate());
     const {onPressArrowLeft} = this.props;
     if (typeof onPressArrowLeft === 'function') {
       return onPressArrowLeft(this.substractMonth, this.props.month);
@@ -148,7 +149,7 @@ class CalendarHeader extends Component {
           {leftArrow}
           <View style={{ flexDirection: 'row' }}>
             <Text allowFontScaling={false} style={this.style.monthText} accessibilityTraits='header'>
-               {monthNames[toHijri(this.props.month.toDate()).month]} {toHijri(this.props.month.toDate()).year} ({this.props.month.toDate().month}) 
+            {monthNames[toHijri(this.props.month.toDate()).month -1]} {toHijri(this.props.month.toDate()).year} ({this.props.month.getFullYear()})   
             </Text>
             {indicator}
           </View>
